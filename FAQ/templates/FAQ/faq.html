@@ -1,0 +1,98 @@
+{% extends 'Home/base.html' %}
+{% load static %}
+{% block sections %}
+	<section class="subhero" style="background: url('{% static 'images/engineering-services-banner2-900x323.jpg' %}');background-repeat: no-repeat; background-size: cover;">
+		<div class="overlay">
+			<h1>FAQ</h1>
+			<p>Frequently Asked Questions</p>
+		</div>
+	</section>
+
+	<section class="faqs">
+		<div class="search">
+			<form method='POST'>
+			{% csrf_token %}
+				<div class='group'>
+					<label>Search a question</label>
+					<input type="text" name="search">
+					<button><i class="fas fa-search"></i></button>
+				</div>
+			</form>
+		</div>
+		<div class="contents">
+			{% for faq in faqs %}
+				<div class="card">
+					<div class="q">
+						<span>Q</span>
+						<p>{{ faq.question }}</p>
+					</div>
+					<div class="a">
+						<span>A</span>
+						<p>{{ faq.answer }}</p>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+		<div class="pagination">
+			{% if faqs.has_previous %}
+				<a href="?page=1">First</a>
+				<a href="?page={{faqs.previous_page_number}}">Previous</a>
+			{% endif%}
+			{% for num in faqs.paginator.page_range %}
+				{% if faqs.number == num %}
+					<a href="?page={{ num }}" class="active">{{ num }}</a>
+				{% elif num > faqs.number|add:'-3' and num < faqs.number|add:'3' %}
+					<a href="?page={{ num }}">{{ num }}</a>
+				{% endif %}
+			{% endfor %}
+			{% if faqs.has_next %}
+				<a href="?page={{ faqs.next_page_number }}">Next</a>
+				<a href="?page={{ faqs.paginator.num_pages }}">Last</a>
+			{% endif%}
+		</div>
+	</section>
+
+	<section class="ask">
+		<div class="text">
+			<h2>Can't find what you are looking for.</h2>
+			<p>You can ask us any question you did not find the answer for above here and get answer mailed directly to you. Your email is secured with us, it will not be transferred to any third party. You will only receive email from us.</p>
+		</div>
+		<div class="direct">
+			<form method="POST">
+				{% csrf_token %}
+				<legend>Ask us a question</legend>
+				<div class="input">
+					<label for="name">Name</label>
+					<input type="text" name="name" class="in" value="{% if name %}{{name}}{% endif %}">
+					{% if name_e %}
+						<small style="color: red">{{ name_e }}</small>
+					{% else %}
+						<small>{{ name_h }}</small>
+					{% endif %}
+					<div class="bottom"></div>
+				</div>
+				<div class="input">
+					<label for="name">Email</label>
+					<input type="email" name="email" class="in" value="{% if email %}{{email}}{% endif %}">
+					{% if email_e %}
+						<small style="color: red">{{ email_e }}</small>
+					{% else %}
+						<small>{{ email_h }}</small>
+					{% endif %}
+					<div class="bottom"></div>
+				</div>
+				<div class="input">
+					<label for="message">Question</label>
+					<textarea name="question" id="" cols="30" rows="10" class="in">{% if question %}{{question}}{% endif %}</textarea>
+					{% if question_e %}
+						<small style="color: red">{{ question_e }}</small>
+					{% else %}
+						<small>{{ question_h }}</small>
+					{% endif %}
+					<div class="bottom"></div>
+				</div>
+				<button class="btn"><span class="send"><i class="fas fa-paper-plane"></i></span><span>Send</span></button>
+			</form>
+		</div>
+	</section>
+{% endblock %}

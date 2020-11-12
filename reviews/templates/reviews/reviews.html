@@ -1,0 +1,49 @@
+{% extends 'Home/base.html' %}
+{% load static %}
+{% block sections %}
+	<section class="subhero" style="background: url('{% static 'images/Industries_hero.jpg' %}');background-repeat: no-repeat; background-size: cover; background-position: bottom;">
+		<div class="overlay" style="background: rgba(27,38,44,.2);">
+			<h1>Reviews</h1>
+			<p>These are all the reviews from our clients.</p>
+		</div>
+	</section>
+	
+	{% include 'Home/scores.html' %}
+	
+	<section class="services" id="reviews">
+		<div class="head">
+			<h2>
+				Our clients loves us
+			</h2>
+			<div class="quote">
+				<p>
+					These are the reviews sent by our client appreciating the good works we did for them. Exceeding
+				your expectations is the goal we work towards to.</p>
+				<span>Nimrod AGE</span>
+			</div>
+		</div>
+		<div class="contents">
+			{% for review in reviews %}
+				<div class="card">
+					<h3>{{ review.company }}</h3>
+					<p>{{ review.comment }}</p>
+					<small>
+						{% for service in review.services.all %}
+							{{ service.name }}, 
+						{% endfor %}
+					</small>
+				</div>
+			{% endfor %}
+		</div>
+		<div class="cta">
+			<a href="{% url 'contact' %}" class="btn">Contact Us</a>
+		</div> 
+	</section>
+
+	<section class="ethos">
+		<h2>Quote request form</h2>
+		<p>You can quickly get a free quotation mailed to you right here. Just fill needed details for the quotation to be mailed to you.</p>
+		<a href="#" class="btn">Get now</a>
+	</section>
+
+{% endblock %}

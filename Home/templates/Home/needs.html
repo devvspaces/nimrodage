@@ -1,0 +1,98 @@
+{% extends 'Home/base.html' %}
+{% load static %}
+{% block sections %}
+	<section id="hero">
+		<div class="text">
+			<h1>We are here for your needs.</h1>
+			<p>We are constantly striving to exceed your expectations and providing exactly what you need.</p>
+			<div class="cta">
+				<a href="{% url 'contact' %}" class="btn">Contact Us</a>
+			</div>
+			<ul class="social-icons">
+				<li><a href="#"><i class="fab fa-facebook"></i></a></li>
+				<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+				<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+				<li><a href="#"><i class="fab fa-whatsapp"></i></a></li>
+			</ul>
+		</div>
+		<div class="image" style="background: url({% static 'images/transmission-tower-1017155_19201-1024x768.jpg' %}); background-repeat: no-repeat; background-size: cover;">
+			<ul class="social-icons">
+				<li><a href="#"><i class="fab fa-facebook"></i></a></li>
+				<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+				<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+				<li><a href="#"><i class="fab fa-whatsapp"></i></a></li>
+			</ul>
+		</div>
+	</section>
+	<section class="history">
+		<div class="text">
+			<h2>We take a closer look</h2>
+			<p>When it comes to satisfaction we are completely reliable and trustworthy. We deliver and change it for the better.</p>
+			<p>During this time Nimrod Age Services have become specialistsin planned preventative maintenance as well as Installations.</p>
+			<p>Our success is based on the continuous commitment that Nimrod Age Services give to all our clients by continuously updating and developing our services, and importantly, in this time of rising costs – competitive pricing structure.</p>
+			<p>Our consistency of work quality, experienced mechanical & electrical engineers, fast reliable 24 hour call out service, and preventative maintenance have also contributed towards the success to date ofNimrod Age Services</p>
+			<p>Nimrod Age Services is committed to Health & Safety and all engineers are completely trained in this area. We also use an external company to monitor and audit our Health and safety practices.</p>
+		</div>
+		<div class="side">
+			<span><i class="fas fa-search"></i></span>
+			<img src="{% static 'images/nimrodagelogo.png' %}" class="tiny">
+		</div>
+	</section>
+	<section id="solutions">
+		<div class="text">
+			<h2>We meet our customers needs.</h2>
+			<p>We have worked with a lot of companies, the most notable ones are Dangote , SPDC, Olams, Friesland ,Nigerite ,Huawei and Unilag. We train different personnels on how to keep safe while working. We are well assured we can serve your needs.</p>
+			<div class="cta">
+				<span></span>
+				<a href="{% url 'contact' %}" class="btn">Contact Us</a>
+			</div>
+		</div>
+		<div class="list">
+			<ul>
+				<li>
+					<span class="icon"><i class="fas fa-check"></i></span>
+					<p>Continuously improving the standards and quality of our services;</p>
+				</li>
+				<li>
+					<span class="icon"><i class="fas fa-check"></i></span>
+					<p>Constantly striving to exceed each client’s expectations;</p>
+				</li>
+				<li>
+					<span class="icon"><i class="fas fa-check"></i></span>
+					<p>Maintaining our dedication to the highest moral principles and;</p>
+				</li>
+				<li>
+					<span class="icon"><i class="fas fa-check"></i></span>
+					<p>Providing a challenging and secure environment for our people.</p>
+				</li>
+			</ul>
+		</div>
+	</section>
+	<section class="ethos">
+		<h2>COMPANY ETHOS</h2>
+		<p>Our company ethos revolves around being regarded by all of our stakeholders as being honourable and conscientious.</p>
+	</section>
+	<section class="scores">
+		<div class="score">
+			<div class="icon">
+				<i class="fas fa-basketball-ball"></i>
+			</div>
+			<h4>Happy<br>customers</h4>
+			<h2>1372</h2>
+		</div>
+		<div class="score">
+			<div class="icon">
+				<i class="fas fa-basketball-ball"></i>
+			</div>
+			<h4>Individuals<br>trained</h4>
+			<h2>5600</h2>
+		</div>
+		<div class="score">
+			<div class="icon">
+				<i class="fas fa-basketball-ball"></i>
+			</div>
+			<h4>Services</h4>
+			<h2>50</h2>
+		</div>
+	</section>
+{% endblock %}

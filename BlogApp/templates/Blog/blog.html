@@ -1,0 +1,110 @@
+{% extends 'Home/base.html' %}
+{% load static %}
+{% block sections %}
+	<section class="subhero" style="background: url('{% static 'images/services_hero.jpg' %}');background-repeat: no-repeat; background-size: cover;">
+		<div class="overlay">
+			<h1>Our Blog</h1>
+			<p>This is Nimrod AGE blog, you can see our updates here.</p>
+		</div>
+	</section>
+	<section class="blog-head fixed-width">
+		<h2>Blog Posts</h2>
+		<div class="blog-search direct">
+			<form method="POST">
+				{% csrf_token %}
+				<div class='input'>
+					<label>Search...</label>
+					<input type="text" name="search" class="in" value="{% if search %}{{search}}{% endif %}">
+					{% if search_error %}
+						<small>{{ search_error }}</small>
+					{% endif %}
+					<div class="bottom"></div>
+				</div>
+				<button><span><i class="fas fa-search"></i></span></button>
+			</form>
+		</div>
+	</section>
+
+	<section class="main-blog fixed-width">
+		<div class="posts">
+			{% if search %}
+				<h3 class="result">{{posts.count}} results found</h3>
+			{% elif category_name %}
+				<h3 class="result">Category: {{category_name}}</h3>
+			{% elif author_name %}
+				<h3 class="result">Author: {{author_name}}</h3>
+			{% endif %}
+			<div class="contents">
+				{% for post in posts %}
+					<div class="card">
+						<a href="{% url 'blog-detail' post.title_slug %}" class="h">{{ post.title }}</a>
+						<small class="cartegory">Cartegory: {{ post.category }}</small>
+						<div class="p_tag">{{ post.content|truncatewords:30|safe }}</div>
+						<small class="by">By {{ post.author.username.title }}</small>
+						<div class="circle"></div>
+					</div>
+				{% endfor %}
+			</div>
+			<div class="pagination">
+				{% if page_obj.has_previous %}
+					<a class="btn" href="?page=1">First</a>
+					<a class="btn" href="?page={{faqs.previous_page_number}}">Previous</a>
+				{% endif%}
+				{% for num in page_obj.paginator.page_range %}
+					{% if page_obj.number == num %}
+						<a href="?page={{ num }}" class="active btn">{{ num }}</a>
+					{% elif num > page_obj.number|add:'-3' and num < page_obj.number|add:'3' %}
+						<a class="btn" href="?page={{ num }}">{{ num }}</a>
+					{% endif %}
+				{% endfor %}
+				{% if page_obj.has_next %}
+					<a class="btn" href="?page={{ page_obj.next_page_number }}">Next</a>
+					<a class="btn" href="?page={{ page_obj.paginator.num_pages }}">Last</a>
+				{% endif%}
+			</div>
+		</div>
+		<div class="sidebar">
+			<div class="card">
+				<div class="head">
+					<h4>Cartegory</h4>
+				</div>
+				<ul>
+					<li><a href="{% url 'blog' %}">All</a></li>
+					{% for ca in category %}
+						<li><a href="{% url 'blog-category' category=ca %}">{{ ca }}</a></li>
+					{% endfor %}
+				</ul>
+			</div>
+			<div class="card">
+				<div class="head">
+					<h4>Facebook Page</h4>
+				</div>
+				<div class="socialFrame">
+					<!-- Put an iframe of the page here -->
+					<a href="#" class="btn">View &raquo;</a>
+				</div>
+			</div>
+			<div class="card">
+				<div class="head">
+					<h4>Free Newsletter</h4>
+				</div>
+				<div class='direct newslett'>
+					<form method="POST">
+						{% csrf_token %}
+						<legend>Get your free newsletter</legend>
+						<div class="input">
+							<label for="name">Email</label>
+							<input type="email" name="email" class="in" value="{% if email %}{{email}}{% endif %}">
+							{% if email_errors %}
+								<small style="color: red; bottom: -2.5rem;">{{ email_errors|safe }}</small>
+							{% endif %}
+							<div class="bottom"></div>
+						</div>
+						<button class="btn"><span class="send"><i class="fas fa-plug"></i></span><span>Connect</span></button>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+
+{% endblock %}

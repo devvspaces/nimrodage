@@ -1,0 +1,48 @@
+{% extends 'Home/base.html' %}
+{% load static %}
+{% block sections %}
+		<section id="hero">
+			<div class="text">
+				<h1>We deal with {{industry.name}}</h1>
+				<p>We are constantly striving to exceed your expectations and providing a challenging and secure environment for your business.</p>
+				<div class="cta">
+					<a href="{% url 'contact' %}" class="btn">Contact Us</a>
+				</div>
+				<ul class="social-icons">
+					<li><a href="#"><i class="fab fa-facebook"></i></a></li>
+					<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+					<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+					<li><a href="#"><i class="fab fa-whatsapp"></i></a></li>
+				</ul>
+			</div>
+			<div class="image" style="background: url({% static 'images/Zz1jZjI1NDBmZjA0YWRjMTdkZDc0NTQzYzM2ZTVhMDk4Yg==.png' %}); background-repeat: no-repeat; background-size: cover;">
+				<ul class="social-icons">
+					<li><a href="#"><i class="fab fa-facebook"></i></a></li>
+					<li><a href="#"><i class="fab fa-twitter"></i></a></li>
+					<li><a href="#"><i class="fab fa-instagram"></i></a></li>
+					<li><a href="#"><i class="fab fa-whatsapp"></i></a></li>
+				</ul>
+			</div>
+		</section>
+		<section class="project">
+			<style type="text/css">
+				.project .text ol,.project .text ul{
+					margin: .5rem 0 2rem 2.5rem;
+				}
+				.project .text li{
+					margin: .5rem 0;
+				}
+			</style>
+			<div class="text">
+				<h2>{{industry.name}} Industry</h2>
+				<p>{{industry.data|safe}}</p>
+			</div>
+			<div class="imagex">
+				<div class="con">
+					<img src="{{industry.image.url}}" alt="nimrod Age work with {{i.name.lower}} industries">
+				</div>
+			</div>
+		</section>
+		{% include 'Home/all_services.html' %}
+		{% include 'Home/sec_industry.html' %}
+{% endblock %}

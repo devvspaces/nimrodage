@@ -1,0 +1,24 @@
+{% autoescape off %}
+Hi {{ name }},
+
+You are getting this mail from us because you commented on one of our posts
+<br>This is an automatic email so you can't reply.
+
+You viewed this post
+<h2>{{post}}</h2>
+and made the comment below
+<h3>Your comment</h3>
+<strong>{{comment}}</strong>
+and we have a reply for you
+<h3>Our reply</h3>
+<strong>{{reply}}</strong>
+<br>
+<strong>You can visit the post with the link below;</strong>
+http://{{ domain }}{{link}}
+
+
+Thank you for registering on our service.
+NimrodAge
+{{email_name}}
+Lagos, Nigeria
+{% endautoescape %}

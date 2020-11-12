@@ -1,0 +1,136 @@
+{% extends 'Home/base.html' %}
+{% load static %}
+{% block sections %}
+	<section id="hero">
+		<div class="text">
+			<h1>Our policy built for you.</h1>
+			<p>We are constantly striving to exceed each client’s expectations and providing a challenging and secure environment for our people.</p>
+			<div class="cta">
+				<a href="{% url 'contact' %}" class="btn">Contact Us</a>
+			</div>
+			<ul class="social-icons">
+				{% include 'Home/social_icons.html' %}
+			</ul>
+		</div>
+		<div class="image" style="background: url({% static 'images/manufacturing_process-2-e1536171574249.jpg' %});background-repeat: no-repeat; background-size: cover;">
+			<ul class="social-icons">
+				{% include 'Home/social_icons.html' %}
+			</ul>
+		</div>
+	</section>
+	<section class="history">
+		<div class="text">
+			<h2>Take a closer look</h2>
+			<p>Nimrod Age Services have been in operation since 2004 under the guise of Eeval Integrated Services Limited – Parent Company. We cover all aspects of work in the area of Electrical and Mechanical Installation including Plumbing Services, Air Condition Ventilation and BMS Systems.</p>
+			<p>During this time Nimrod Age Services have become specialistsin planned preventative maintenance as well as Installations.</p>
+			<p>Our success is based on the continuous commitment that Nimrod Age Services give to all our clients by continuously updating and developing our services, and importantly, in this time of rising costs – competitive pricing structure.</p>
+			<p>Our consistency of work quality, experienced mechanical & electrical engineers, fast reliable 24 hour call out service, and preventative maintenance have also contributed towards the success to date ofNimrod Age Services</p>
+			<p>Nimrod Age Services is committed to Health & Safety and all engineers are completely trained in this area. We also use an external company to monitor and audit our Health and safety practices.</p>
+		</div>
+		<div class="side">
+			<span><i class="fas fa-search"></i></span>
+			<img src="{% static 'images/nimrodagelogo.png' %}" class="tiny">
+		</div>
+	</section>
+	<section id="solutions">
+		<div class="text">
+			<h2>Our missions towards a lasting success</h2>
+			<p>Our mission is to build our reputation for integrity, excellence, and leadership as one of the finest Engineering and Contracting Organization by the following</p>
+			<div class="cta">
+				<span></span>
+				<a href="{% url 'contact' %}" class="btn">Contact Us</a>
+			</div>
+		</div>
+		<div class="list">
+			<ul>
+				<li>
+					<span class="icon"><i class="fas fa-check"></i></span>
+					<p>Continuously improving the standards and quality of our services;</p>
+				</li>
+				<li>
+					<span class="icon"><i class="fas fa-check"></i></span>
+					<p>Constantly striving to exceed each client’s expectations;</p>
+				</li>
+				<li>
+					<span class="icon"><i class="fas fa-check"></i></span>
+					<p>Maintaining our dedication to the highest moral principles and;</p>
+				</li>
+				<li>
+					<span class="icon"><i class="fas fa-check"></i></span>
+					<p>Providing a challenging and secure environment for our people.</p>
+				</li>
+			</ul>
+		</div>
+	</section>
+	{% include 'Home/scores.html' %}
+	{% include 'Home/ethos.html' %}
+	<section class="structure">
+		<h2>Company Structure</h2>
+		<div class="box">
+			<div class="circle mechanical">
+				<h3>Mechanical / Electrical Division</h3>
+			</div>
+			<div class="circle maintenance">
+				<h3>Maintenance / HSE</h3>
+			</div>
+			<div class="circle nimrod">
+				<h3>Nimrod AGE</h3>
+			</div>
+			<div class="circle works">
+				<h3>Project and Works Division</h3>
+			</div>
+			<div class="circle customer">
+				<h3>Customer</h3>
+			</div>
+		</div>
+	</section>
+	<section id="solutions">
+		<div class="text">
+			<h2>Company Core Personnel</h2>
+			<p>These are lists of our company's core personnel, we are obliged towards safety and implementation of guidelines for preventions.</p>
+			<div class="cta">
+				<a href="{% url 'contact' %}" class="btn">Contact Us</a>
+			</div>
+		</div>
+		<div class="list">
+			<ul>
+				<li>
+					<span class="icon"><i class="fas fa-check"></i></span>
+					<p>HVAC Engineers</p>
+				</li>
+				<li>
+					<span class="icon"><i class="fas fa-check"></i></span>
+					<p>Boiler Service Engineers</p>
+				</li>
+				<li>
+					<span class="icon"><i class="fas fa-check"></i></span>
+					<p>Plumbers/Fitters</p>
+				</li>
+				<li>
+					<span class="icon"><i class="fas fa-check"></i></span>
+					<p>Contracts Managers</p>
+				</li>
+				<li>
+					<span class="icon"><i class="fas fa-check"></i></span>
+					<p>Office Administration and Accounts</p>
+				</li>
+				<li>
+					<span class="icon"><i class="fas fa-check"></i></span>
+					<p>24 Hour Call out facility</p>
+				</li>
+				<li>
+					<span class="icon"><i class="fas fa-check"></i></span>
+					<p>We also have access to a wide variety of approved sub-contractors for specific requirements</p>
+				</li>
+				<li>
+					<span class="icon"><i class="fas fa-check"></i></span>
+					<p>Contracts Managers</p>
+				</li>
+			</ul>
+		</div>
+	</section>
+	{% include 'Home/sec_safety.html' %}
+	{% include 'Home/sec_service.html' %}
+	{% include 'Home/sec_needs.html' %}
+	{% include 'Home/sec_industry.html' %}
+{% endblock %}

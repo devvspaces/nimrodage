@@ -1,0 +1,25 @@
+<section class="services">
+		<div class="head">
+			<h2>
+				Services we offer
+			</h2>
+			<div class="quote">
+				<p>
+					These are the services we offer. Some brief information on them, to get more information here just click
+					the learn more link on each card.</p>
+				<span>Nimrod AGE</span>
+			</div>
+		</div>
+		<div class="contents">
+			{% for i in services %}
+				<div class="card">
+					<h3>{{i.name}}</h3>
+					<p>Reliability of your assets is essential to remain competitive in today’s economic climate. Nimrod AGE reliability services translate into improved safety, product quality, productivity, and efficiency. Unplanned downtime of equipment costs industry millions of dollars in process and service interruptions each day.</p>
+					<div class="cta">
+						<a href="{% url 'contact' %}" class="btn">Talk with us</a>
+						<a href="{% url 'service' i.slug %}" class="small">Learn more&raquo;</a>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</section>

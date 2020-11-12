@@ -1,0 +1,269 @@
+{% extends 'Home/base.html' %}
+{% load static %}
+{% block sections %}
+	<section id="hero">
+		<div class="text">
+			<h1>Training made easy</h1>
+			<p>We are all about maintaining our dedication to the highest moral principles and providing a challenging and secure environment for our people.</p>
+			<div class="cta">
+				<a href="{% url 'contact' %}" class="btn">Contact Us</a>
+				<a href="#problems" class="small">Learn more &raquo;</a>
+			</div>
+			<ul class="social-icons">
+				{% include 'Home/social_icons.html' %}
+			</ul>
+		</div>
+		<div class="image">
+			<ul class="social-icons">
+				{% include 'Home/social_icons.html' %}
+			</ul>
+		</div>
+	</section>
+	<section id="logos">
+		<div class="logos">
+			<div class="logo">
+				<img src="{% static 'images/knipex.png' %}" alt="nimrod Age client logo">
+			</div>
+			<div class="logo">
+				<img src="{% static 'images/oleams.jpeg' %}" alt="nimrod Age client logo">
+			</div>
+			<div class="logo">
+				<img src="{% static 'images/chivita.png' %}" alt="nimrod Age client logo">
+			</div>
+			<div class="logo">
+				<img src="{% static 'images/huawei.jpg' %}" alt="nimrod Age client logo">
+			</div>
+			<div class="logo">
+				<img src="{% static 'images/knipex.png' %}" alt="nimrod Age client logo">
+			</div>
+			<div class="logo">
+				<img src="{% static 'images/oleams.jpeg' %}" alt="nimrod Age client logo">
+			</div>
+			<div class="logo">
+				<img src="{% static 'images/chivita.png' %}" alt="nimrod Age client logo">
+			</div>
+			<div class="logo">
+				<img src="{% static 'images/huawei.jpg' %}" alt="nimrod Age client logo">
+			</div>
+			<div class="logo">
+				<img src="{% static 'images/knipex.png' %}" alt="nimrod Age client logo">
+			</div>
+			<div class="logo">
+				<img src="{% static 'images/oleams.jpeg' %}" alt="nimrod Age client logo">
+			</div>
+			<div class="logo">
+				<img src="{% static 'images/chivita.png' %}" alt="nimrod Age client logo">
+			</div>
+			<div class="logo">
+				<img src="{% static 'images/huawei.jpg' %}" alt="nimrod Age client logo">
+			</div>
+		</div>
+	</section>
+	<section id="problems">
+		<div class="text">
+			<h2>What problems do you want out?</h2>
+			<p>It seems you want to make your business more secured and safe. Are there any problems you are facing currently that you want to annul, we can help you with that. We render solutions tailored for your company.</p>
+			<div class="cta">
+				<a href="{% url 'contact' %}" class="btn">Contact Us</a>
+				<a href="#solutions" class="small">Our solutions &raquo;</a>
+			</div>
+		</div>
+		<div class="list">
+			<ul>
+				<li>
+					<span class="icon"><i class="fas fa-times"></i></span>
+					<p>No personal protective equipment in manufacturing facilities - a high-risk environment.</p>
+				</li>
+				<li>
+					<span class="icon"><i class="fas fa-times"></i></span>
+					<p>Employees with poor maintenance operations.</p>
+				</li>
+				<li>
+					<span class="icon"><i class="fas fa-times"></i></span>
+					<p>Production downtime and man-hour loss.</p>
+				</li>
+				<li>
+					<span class="icon"><i class="fas fa-times"></i></span>
+					<p>Vunerability against electrical hazards, chemicals burns, machines, moving parts and equipment.</p>
+				</li>
+				<li>
+					<span class="icon"><i class="fas fa-times"></i></span>
+					<p>Inability to follow risk management procedures.</p>
+				</li>
+				<li>
+					<span class="icon"><i class="fas fa-times"></i></span>
+					<p>Dealing with network cybersecurity risks.</p>
+				</li>
+			</ul>
+		</div>
+	</section>
+	<section id="solutions">
+		<div class="text">
+			<h2>We recommend best solutions for you.</h2>
+			<p>We provide the best solutions to your problems following proper risk management procedures we can train your employees to handle issues in any risky enviroment.</p>
+			<div class="cta">
+				<a href="{% url 'contact' %}" class="btn">Contact Us</a>
+				<a href="#benefits" class="small">Our benefits &raquo;</a>
+			</div>
+		</div>
+		<div class="list">
+			<ul>
+				<li>
+					<span class="icon"><i class="fas fa-check"></i></span>
+					<p>Providing industrail safety solutions to mitigate against production time and man-hour loss.</p>
+				</li>
+				<li>
+					<span class="icon"><i class="fas fa-check"></i></span>
+					<p>Raising awareness by means of sensitization and strict compliance to various safety measures.</p>
+				</li>
+				<li>
+					<span class="icon"><i class="fas fa-check"></i></span>
+					<p>Inspecting and proferring safety solutions to various work applications.</p>
+				</li>
+				<li>
+					<span class="icon"><i class="fas fa-check"></i></span>
+					<p>Proper risk management procedures with hands-on teaching.</p>
+				</li>
+				<li>
+					<span class="icon"><i class="fas fa-check"></i></span>
+					<p>Educating employees on first-aid, CPR, safety monitoring technology, confined-space rescue and emergency response protocol to keep the workforce prepared to manage emergencies – at all times.</p>
+				</li>
+			</ul>
+		</div>
+	</section>
+	<section id="benefits">
+		<div class="head">
+			<h2>
+				Let's make your business better
+			</h2>
+		</div>
+		<div class="benefits">
+			<div class="imagex">
+				<div class="con">
+					<img src="{% static 'images/manufacturing_process-e1536074659271.jpg' %}" alt="nimrod Age benefits">
+				</div>
+			</div>
+			<div class="text">
+				<h3>Your safety is assured</h3>
+				<p>It is important to re-evaluate safety programs and behavior to more effectively address worker safety issues and reduce the rate of injuries and accidents in the industry. Nimrod AGE is proud to be at the forefront creating a situation where your business can reduce risk and costs at the same time.</p>
+				<a href="#">Find out more&raquo;</a>
+			</div>
+		</div>
+		<div class="benefits">
+			<div class="imagex">
+				<div class="con">
+					<img src="{% static 'images/drone-roof-inspections-icon.jpg' %}" alt="nimrod Age benefits">
+				</div>
+			</div>
+			<div class="text">
+				<h3>Increased productivity is assured</h3>
+				<p>We provide industrail safety solutions to mitigate against production time and man-hour loss. These safety and health solutions put in place reduce risk of injuries of workers in high risk enviroments will in turn increase your producing factor.</p>
+				<a href="#">Find out more&raquo;</a>
+			</div>
+		</div>
+		<div class="benefits">
+			<div class="imagex">
+				<div class="con">
+					<img src="{% static 'images/hse-max2.jpg' %}" alt="nimrod Age benefits">
+				</div>
+			</div>
+			<div class="text">
+				<h3>Hands-on training.</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+					Pariatur excepturi neque enim molestias quisquam, ducimus et veniam debitis, 
+					aliquam adipisci numquam praesentium est repellat aspernatur rerum iure distinctio. Ducimus, quam!</p>
+				<a href="#">Find out more&raquo;</a>
+			</div>
+		</div>
+	</section>
+	{% include 'Home/sec_safety.html' %}
+	{% include 'Home/sec_service.html' %}
+	{% include 'Home/sec_industry.html' %}
+	{% include 'Home/sec_needs.html' %}
+	<section id="newsletter">
+		<div class="letter">
+			<h2>Free updates from us</h2>
+			<p>You can get news, updates, events and exclusive training information emailed to your for free.</p>
+			<form method="POST">
+				{% csrf_token %}
+				<div class="email">
+					<label for="email">Email</label>
+					<input type="email" name="email" value="{% if email %}{{email}}{% endif %}">
+					<div class="bottom"></div>
+				</div>
+				{% if email_errors %}
+					<small style="color: red;">{{ email_errors|safe }}</small>
+				{% else %}
+					<small><i class="fas fa-lock"></i> Your email is protected from any third party.</small>
+				{% endif %}
+				<button>Proceed</button>
+			</form>
+		</div>
+	</section>
+	{% include 'Home/scores.html' %}
+	<section class="services" id="reviews">
+		<div class="head">
+			<h2>
+				Our clients loves us
+			</h2>
+			<div class="quote">
+				<p>
+					These are the reviews sent by our client appreciating the good works we did for them. Exceeding
+				your expectations is the goal we work towards to.</p>
+				<span>Nimrod AGE</span>
+			</div>
+		</div>
+		<div class="contents">
+			{% for review in reviews %}
+				<div class="card">
+					<h3>{{ review.company }}</h3>
+					<p>{{ review.comment }}</p>
+					<small>
+						{% for service in review.services.all %}
+							{{ service.name }}, 
+						{% endfor %}
+					</small>
+				</div>
+			{% endfor %}
+		</div>
+		<div class="cta">
+			<a href="{% url 'contact' %}" class="btn">Contact Us</a>
+			<a href="{% url 'reviews' %}" class="small">See more &raquo;</a>
+		</div> 
+	</section>
+	<section class="ethos">
+		<h2>Quote request form</h2>
+		<p>You can quickly get a free quotation mailed to you right here. Just fill needed details for the quotation to be mailed to you.</p>
+		<a href="#" class="btn">Get now</a>
+	</section>
+	<section class="faqs">
+		<div class="head">
+			<h2>
+				Frequently asked questions by clients
+			</h2>
+			<div class="quote">
+				<p>
+					These are some Frequently asked questions we get from most companies we work with.</p>
+				<span>Nimrod AGE</span>
+			</div>
+		</div>
+		<div class="contents" style="justify-content: center;">
+			{% for faq in faqs %}
+				<div class="card">
+					<div class="q">
+						<span>Q</span>
+						<p>{{ faq.question }}</p>
+					</div>
+					<div class="a">
+						<span>A</span>
+						<p>{{ faq.answer }}</p>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+		<div class="cta">
+			<a href="{% url 'contact' %}" class="btn">Contact Us</a>
+			<a href="#" class="small">See more &raquo;</a>
+		</div> 
+	</section>
+{% endblock %}

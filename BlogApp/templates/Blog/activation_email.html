@@ -1,0 +1,16 @@
+{% autoescape off %}
+Hi {{ name}},
+
+You are getting the mail from us because you signed up on our website for Newsletter, NimrodAge. This is an automatic email so you can't reply.
+
+Please click the following link to confirm your NewsLetter registration:
+
+http://{{ domain }}{% url 'activate_email' uidb64=uid token=token %}
+
+Do not share your link with anyone else, it might compromise your security, keep it undisclosed.
+
+Thank you for registering on our service.
+NimrodAge
+{{email_name}}
+Lagos, Nigeria
+{% endautoescape %}

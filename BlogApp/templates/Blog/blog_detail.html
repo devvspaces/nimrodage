@@ -1,0 +1,142 @@
+{% extends 'Home/base.html' %}
+{% load static %}
+{% block sections %}
+		<section class="subhero" style="background: url('{% static 'images/services_hero.jpg' %}');background-repeat: no-repeat; background-size: cover;">
+			<div class="overlay blog_mode">
+				<h1>{{ post.title }}</h1>
+				<ul class="info one">
+					<li class="author">
+						<span><i class="fas fa-user"></i></span>
+						<p><a href="{% url 'blog-author' username=post.author.username %}">{{ post.author.username.title }}</a></p>
+					</li>
+					<li class="date">
+						<span><i class="fas fa-calendar"></i></span>
+						<p>{{ post.date }}</p>
+					</li>
+					<li class="category">
+						<span><i class="fas fa-bookmark"></i></span>
+						<p>{{ post.category }}</p>
+					</li>
+				</ul>
+				<ul class="info two">
+					<li class="like">
+						<span class='likes {{liked}}'><i class="fas fa-heart"></i></span>
+						<p>{{ post.likes.count }}</p>
+					</li>
+					<li class="views">
+						<span><i class="fas fa-eye"></i></span>
+						<p>{{ post.views.count }}</p>
+					</li>
+					<li class="shares">
+						<span><i class="fas fa-comment"></i></span>
+						<p>{{ post.comment_set.count }}</p>
+					</li>
+				</ul>
+			</div>
+		</section>
+
+		<section class="main-blog fixed-width detailed">
+			<div class="post_detail">
+				<section class="content">
+					{{post.content|safe}}
+				</section>
+			</div>
+			<div class="subsection">
+				<ul class="social">
+					<li class="like">
+						<span class='likes {{liked}}'><i class="fas fa-heart"></i></span>
+						<p>{{ post.likes.count }}</p>
+					</li>
+					<li class="views">
+						<span><i class="fas fa-eye"></i></span>
+						<p>{{ post.views.count }}</p>
+					</li>
+					<li class="shares">
+						<a href="#"><span><i class="fas fa-comment"></i></span></a>
+						<p>{{ post.comment_set.count }}</p>
+					</li>
+				</ul>
+			</div>
+			<div class="share_icons"  style="display: none">
+				<h3>Share post</h3>
+				<div class="social">
+					<a href="#"><i class="fab fa-facebook"></i></a>
+					<a href="#"><i class="fab fa-instagram"></i></a>
+					<a href="#"><i class="fab fa-whatsapp"></i></a>
+					<a href="#"><i class="fab fa-twitter"></i></a>
+				</div>
+			</div>
+			<div id="comment">
+				<form method="POST">
+					{% csrf_token %}
+					<legend>Comment</legend>
+					<fieldset>
+						<label for="#name">Name</label>
+						<input type="text" name="name" id="name" value="{% if name %}{{name}}{% endif %}">
+						{% if name_e %}
+							<small>{{ name_e|safe }}</small>
+						{% elif name_h %}
+							<small style="color: #3282b8;">{{ name_h }}</small>
+						{% endif %}
+					</fieldset>
+					<fieldset>
+						<label for="#email">Email</label>
+						<input type="email" name="email" id="email" value="{% if email %}{{email}}{% endif %}">
+						{% if email_e %}
+							<small>{{ email_e|safe }}</small>
+						{% elif email_h %}
+							<small style="color: #3282b8;">{{ email_h }}</small>
+						{% endif %}
+					</fieldset>
+					<fieldset>
+						<label for="#comment_text">Write a comment*</label>
+						<textarea cols="50" rows="10" id="comment_text" name="comment">{% if comment %}{{comment}}{% endif %}</textarea>
+						{% if comment_e %}
+							<small>{{ comment_e|safe }}</small>
+						{% elif comment_h %}
+							<small style="color: #3282b8;">{{ comment_h }}</small>
+						{% endif %}
+					</fieldset>
+					<button><span><i class="fas fa-comment"></i></span>Comment</button>
+				</form>
+				<div class="comments">
+					<h3>{{ post.comment_set.all.count }} Comments</h3>
+					{% for comment in post.comment_set.all %}
+						<div class="card">
+							<h4><span><i class="fas fa-user"></i></span>{{ comment.name }}</h4>
+							<p>{{ comment.comment }}</p>
+							<small class="date">{{ comment.date }}</small>
+							{% if comment.has_reply %}
+								<div class="reply">
+									<h4><img src="{% static 'images/nimrodagelogo.png' %}">Nimrod Age</h4>
+									<p>{{ comment.reply.content }}.</p>
+									<small class="date">{{ comment.reply.date }}</small>
+								</div>
+							{% else %}
+								{% if request.user.is_staff or request.user.is_superuser %}
+									<a href="/admin/BlogApp/comment/{{comment.id}}/change/" class="reply_cta"> <span><i class="fas fa-reply"></i></span>Reply</a>
+								{% endif %}
+							{% endif %}
+
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+			<div class="posts">
+				<h3 class="result">Similar posts</h3>
+				<div class="contents">
+					{% for post in similar %}
+						<div class="card">
+							<a href="#" class="h">{{ post.title }}</a>
+							<small class="cartegory">Cartegory: {{ post.category.name }}</small>
+							<p>{{ post.content|truncatewords:30 }}</p>
+							<small class="by">By {{ post.author.username.title }}</small>
+							<div class="circle"></div>
+						</div>
+					{% endfor %}
+				</div>
+				<a href="{% url 'blog-category' category=category_name %}" class="last">&raquo; See all</a>
+			</div>
+		</section>
+
+{% endblock %}

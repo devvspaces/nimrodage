@@ -1,0 +1,23 @@
+<section class="features">
+			<div class="head">
+				<h2>
+					We work with industries like your's
+				</h2>
+				<div class="quote">
+					<p>
+						These are the Industries we work with. Some brief information on them, to get more information here just click
+						the industry name on each card.</p>
+					<span>Nimrod AGE</span>
+				</div>
+			</div>
+			<div class="contents">
+				{% for i in industries %}
+					<div data-tilt class="card">
+						<span class="icon"><i class="fas fa-cog"></i></span>
+						<h3><a href="{% url 'industry' i.slug %}">{{i.name}}</a></h3>
+						<p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Explicabo sit 
+							eum itaque fuga numquam ab vitae quo atque.</p>
+					</div>
+				{% endfor %}
+			</div>
+		</section>

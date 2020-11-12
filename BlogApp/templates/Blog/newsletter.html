@@ -1,0 +1,32 @@
+{% extends 'Home/base.html' %}
+{% load static %}
+{% block sections %}
+	<section class="subhero" style="background: url('{% static 'images/Industries_hero.jpg' %}');background-repeat: no-repeat; background-size: cover; background-position: bottom;">
+		<div class="overlay" style="background: rgba(27,38,44,.2);">
+			<h1>Our Newsletter</h1>
+			<p>You have encountered an error, check below for futher information</p>
+		</div>
+	</section>
+
+	<section id="newsletter">
+		<div class="letter">
+			<h2>Activation Error</h2>
+			<p>The link you used is not valid, it has either expired or is incorrect. Try requesting for another mail with the form below.<br>You can either use the email you used before or try a new one.</p>
+			<form method="POST">
+				{% csrf_token %}
+				<div class="email">
+					<label for="email">Email</label>
+					<input type="email" name="email" value="{% if email %}{{email}}{% endif %}">
+					<div class="bottom"></div>
+				</div>
+				{% if email_errors %}
+					<small style="color: red;">{{ email_errors|safe }}</small>
+				{% else %}
+					<small><i class="fas fa-lock"></i> Your email is protected from any third party.</small>
+				{% endif %}
+				<button>Proceed</button>
+			</form>
+		</div>
+	</section>
+
+{% endblock %}

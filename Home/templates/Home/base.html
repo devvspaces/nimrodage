@@ -1,0 +1,239 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	{% if title %}
+		<title>Nimrod AGE - {{ title }}</title>
+	{% else %}
+		<title>Nimrod AGE</title>
+	{% endif %}
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/slick-theme.min.css' %}">
+	<link rel="stylesheet" href="{% static 'css/slick.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	<link rel="shortcut icon" type="image/x-icon" href="{% static 'images/nimrodagelogo.png' %}">
+</head>
+<body class="{{ klass }}">
+
+	<header>
+		<div class="container">
+			<input type="checkbox" name="" id="check">
+			<a style="display: block;" href="{% url 'index' %}"><div class="logo-container">
+				<img src="{% static 'images/nimrodagelogo.png' %}"><h3 class="logo">Nimrod<span>AGE</span></h3>
+			</div></a>
+			<div class="nav-btn">
+				<div class="nav-links">
+					<ul>
+						<li class="nav-link" style="--i: .6s">
+							<a href="{% url 'index' %}" class="">Home</a>
+						</li>
+						<li class="nav-link" style="--i: .85s">
+							<a href="#" class="disableA">Services<i class="fas fa-caret-down"></i></a>
+							<div class="dropdown">
+								<ul>
+									<!-- <a href="#">Mechanical Integrity<i class="fas fa-caret-down"></i></a> -->
+									<!-- <div class="dropdown second">
+										<ul>
+											<li class="dropdown-link">
+												<a href="#">Link 1</a>
+											</li>
+											<li class="dropdown-link">
+												<a href="#">Link 2</a>
+											</li>
+											<li class="dropdown-link">
+												<a href="#">Link 3</a>
+											</li>
+											<li class="dropdown-link">
+												<a href="#">More<i class="fas fa-caret-down"></i></a>
+												<div class="dropdown second">
+													<ul>
+														<li class="dropdown-link">
+															<a href="#">Link 1</a>
+														</li>
+														<li class="dropdown-link">
+															<a href="#">Link 2</a>
+														</li>
+														<li class="dropdown-link">
+															<a href="#">Link 3</a>
+														</li>
+														<div class="arrow"></div>
+													</ul>	
+												</div>
+											</li>
+											<div class="arrow"></div>
+										</ul>	
+									</div> -->
+									{% for i in services %}
+										<li class="dropdown-link">
+											<a href="{% url 'service' i.slug %}">{{i.name.title}}</a>
+										</li>
+									{% endfor %}
+									<div class="arrow"></div>
+								</ul>	
+							</div>
+						</li>
+						<li class="nav-link" style="--i: 1.1s">
+							<a href="#" class="disableA">Industries<i class="fas fa-caret-down"></i></a>
+							<div class="dropdown">
+								<ul>
+									{% for i in industries %}
+										<li class="dropdown-link">
+											<a href="{% url 'industry' i.slug %}">{{i.name.title}}</a>
+										</li>
+									{% endfor %}
+									<div class="arrow"></div>
+								</ul>	
+							</div>
+						</li>
+						<li class="nav-link" style="--i: 1.35s">
+							<a href="#" class="disableA">About Us<i class="fas fa-caret-down"></i></a>
+							<div class="dropdown">
+								<ul>
+									<li class="dropdown-link">
+										<a href="{% url 'certs' %}">Certs and standards</a>
+									</li>
+									<li class="dropdown-link">
+										<a href="#">Acquisitions</a>
+									</li>
+									<li class="dropdown-link">
+										<a href="#">Brochures</a>
+									</li>
+									<li class="dropdown-link">
+										<a href="{% url 'reviews' %}">Reviews</a>
+									</li>
+									<li class="dropdown-link">
+										<a href="{% url 'faq' %}">FAQ</a>
+									</li>
+									<div class="arrow"></div>
+								</ul>	
+							</div>
+						</li>
+						<li class="nav-link" style="--i: 1.6s">
+							<a href="{% url 'blog' %}" class="">Blog</a>
+						</li>
+						<li class="nav-link" style="--i: 1.85s">
+							<a href="#" class="disableA">Quick links<i class="fas fa-caret-down"></i></a>
+							<div class="dropdown">
+								<ul>
+									<li class="dropdown-link">
+										<a href="#">Terms and Conditions of purchase</a>
+									</li>
+									<li class="dropdown-link">
+										<a href="#">Accreditations</a>
+									</li>
+									<li class="dropdown-link">
+										<a href="#">Free Quotation</a>
+									</li>
+									<li class="dropdown-link">
+										<a href="{% url 'faq' %}">Frequently asked questions</a>
+									</li>
+									<li class="dropdown-link">
+										<a href="#">Forms and documents</a>
+									</li>
+									<div class="arrow"></div>
+								</ul>	
+							</div>
+						</li>
+					</ul>
+				</div>
+				<div class="log-sign" style="--i: 1.8s">
+					<a href="{% url 'contact' %}" class="btn transparent">Contact us</a>
+				</div>
+			</div>
+			<div class="hamburger-menu-container">
+				<div class="hamburger-menu">
+					<div></div>
+				</div>
+			</div>
+		</div>
+	</header>
+	<main>
+
+	{% if messages %}
+	    {% for message in messages %}
+	    	<div class="alert alert-{{ message.tags }}">{{message}}<span><i class="fas fa-times"></i></span></div>
+	    {% endfor %}
+  	{% endif %}
+		
+
+		{% block sections %}
+		{% endblock %}
+
+		<a href="#" class="traveller" id="scrollUp"><i class="fas fa-arrow-up"></i></a>
+
+
+		<section id="footer">
+			<div class="links">
+				<legend>Quick links</legend>
+				<ul>
+					<li><a href="#">&raquo; Free Quotation</a></li>
+					<li><a href="#">&raquo; Terms and conditions</a></li>
+					<li><a href="{% url 'faq' %}">&raquo; Frequently asked questions</a></li>
+					<li><a href="#">&raquo; Accreditations</a></li>
+					<li><a href="#">&raquo; Forms and documents</a></li>
+				</ul>
+			</div>
+			<div class="links">
+				<legend>Services</legend>
+				<ul>
+					{% for i in services %}
+						<li><a href="{% url 'service' i.slug %}">&raquo; {{i.name.title}}</a></li>
+					{% endfor %}
+				</ul>
+			</div>
+			<div class="links">
+				<legend>Industries</legend>
+				<ul>
+					{% for i in industries %}
+						<li><a href="{% url 'industry' i.slug %}">&raquo; {{i.name.title}}</a></li>
+					{% endfor %}
+				</ul>
+			</div>
+			<div class="links">
+				<legend>About NimrodAGE</legend>
+				<div class="about">
+					<img src="{% static 'images/nimrodagelogo.png' %}" alt="nimrod AGE">
+					<p>Nimrod Age Services have been in operation since 2004 under the guise of Eeval Integrated Services Limited – Parent Company. We cover all aspects of work in the area of Electrical and Mechanical Installation including Plumbing Services, Air Condition Ventilation and BMS Systems</p>
+					<a href="{% url 'certs' %}">See more &raquo;</a>
+				</div>
+			</div>
+			<div class="links">
+				<legend>Locations</legend>
+				<ul class="locations">
+					<li>
+						<span><i class="fas fa-map-marker"></i></span>
+						<p>Lagos</p>
+					</li>
+					<li>
+						<span><i class="fas fa-map-marker"></i></span>
+						<p>Port Harcourt</p>
+					</li>
+				</ul>
+			</div>
+		</section>
+
+		<footer id="credit">
+			<p>Nimrod AGE Department 2020 website crafted by 
+				<a href="#">DevvSpace Technologies</a>
+			</p>
+		</footer>
+
+	</main>
+
+	<!-- loader -->
+	<div id="ftco-loader" class="show fullscreen"><svg class="circular" width="48px" height="48px">
+		<circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#bbe1fa"/>
+		<circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#1b262c"/>
+	</svg></div>
+
+	<script src="{% static 'js/jquery.js' %}"></script>
+	<script src="{% static 'js/jquery.easing.min.js' %}"></script>
+	<script src="{% static 'js/fontawesome-all.js' %}"></script>
+	<script src="{% static 'js/tilt.jquery.js' %}"></script>
+	<script src="{% static 'js/slick.min.js' %}"></script>
+	<script src="{% static 'js/smoothScroll.js' %}"></script>
+	<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>

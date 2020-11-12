@@ -1,0 +1,55 @@
+{% extends 'Home/base.html' %}
+{% load static %}
+{% block sections %}
+	<section id="hero">
+		<div class="text">
+			<h1>Your safety is our concern.</h1>
+			<p>We are one of the finest Engineering and Contracting Organization providing challenging and secure environment for our people.</p>
+			<div class="cta">
+				<a href="{% url 'contact' %}" class="btn">Contact Us</a>
+			</div>
+			<ul class="social-icons">
+				{% include 'Home/social_icons.html' %}
+			</ul>
+		</div>
+		<div class="image" style="background: url({% static 'images/Young worker working in workshop.jpeg' %});background-repeat: no-repeat; background-size: cover;">
+			<ul class="social-icons">
+				{% include 'Home/social_icons.html' %}
+			</ul>
+		</div>
+	</section>
+	<section class="history learnmore one">
+		<div class="text">
+			<h2>What really is safety?</h2>
+			<p>Nimrod Age Services have been in operation since 2004 under the guise of Eeval Integrated Services Limited – Parent Company. We cover all aspects of work in the area of Electrical and Mechanical Installation including Plumbing Services, Air Condition Ventilation and BMS Systems.</p>
+			<p>During this time Nimrod Age Services have become specialistsin planned preventative maintenance as well as Installations.</p>
+			<p>Our success is based on the continuous commitment that Nimrod Age Services give to all our clients by continuously updating and developing our services, and importantly, in this time of rising costs – competitive pricing structure.</p>
+			<p>Our consistency of work quality, experienced mechanical & electrical engineers, fast reliable 24 hour call out service, and preventative maintenance have also contributed towards the success to date ofNimrod Age Services</p>
+			<p>Nimrod Age Services is committed to Health & Safety and all engineers are completely trained in this area. We also use an external company to monitor and audit our Health and safety practices.</p>
+		</div>
+		<div class="side">
+			<span>
+				<i class="fas fa-shield-alt"></i>
+			</span>
+			<img src="{% static 'images/nimrodagelogo.png' %}" class="tiny">
+		</div>
+	</section>
+	<section class="history learnmore two">
+		<div class="text">
+			<h2>Let's keep you safe</h2>
+			<p>Nimrod Age Services have been in operation since 2004 under the guise of Eeval Integrated Services Limited – Parent Company. We cover all aspects of work in the area of Electrical and Mechanical Installation including Plumbing Services, Air Condition Ventilation and BMS Systems.</p>
+			<p>During this time Nimrod Age Services have become specialistsin planned preventative maintenance as well as Installations.</p>
+			<p>Our success is based on the continuous commitment that Nimrod Age Services give to all our clients by continuously updating and developing our services, and importantly, in this time of rising costs – competitive pricing structure.</p>
+			<p>Our consistency of work quality, experienced mechanical & electrical engineers, fast reliable 24 hour call out service, and preventative maintenance have also contributed towards the success to date ofNimrod Age Services</p>
+			<p>Nimrod Age Services is committed to Health & Safety and all engineers are completely trained in this area. We also use an external company to monitor and audit our Health and safety practices.</p>
+		</div>
+		<div class="side">
+			<span>
+				<i class="fas fa-notes-medical"></i>
+			</span>
+			<img src="{% static 'images/nimrodagelogo.png' %}" class="tiny">
+		</div>
+	</section>
+	{% include 'Home/ethos.html' %}
+	{% include 'Home/scores.html' %}
+{% endblock %}

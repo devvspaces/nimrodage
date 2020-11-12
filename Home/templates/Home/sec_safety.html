@@ -1,0 +1,19 @@
+{% load static %}
+<section class="safety">
+	<div class="container">
+		<div class="text">
+			<h2>Your safety is our concern</h2>
+			<div class="cta">
+				<a href="{% url 'contact' %}" class="btn">Contact us</a>
+				<a href="{% url 'safety' %}" class="small">Learn more &raquo;</a>
+			</div>
+		</div>
+		<div class="image">
+			<img src="{% static 'images/reliability-engineering.jpg' %}" alt="nimrod Age safety is the best">
+			<ul class="social-icons">
+				{% include 'Home/social_icons.html' %}
+			</ul>
+		</div>
+	</div>
+	<div class="design"></div>
+</section>

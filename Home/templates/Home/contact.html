@@ -1,0 +1,308 @@
+{% extends 'Home/base.html' %}
+{% load static %}
+{% block sections %}
+	<section class="subhero">
+		<div class="overlay">
+			<h1>Contact us</h1>
+		</div>
+	</section>
+
+	<section class="services" id="contact">
+		<div class="head">
+			<h2>
+				Talk to us anytime
+			</h2>
+			<div class="quote">
+				<p>
+					These are easy ways you can get to us, just use anyone of them and we will get back to you.</p>
+				<span>Nimrod AGE</span>
+			</div>
+		</div>
+		<div class="contents">
+			<div class="social">
+				<div class="link">
+					<span class="icon"><i class="fas fa-map-marker"></i></span>
+					<div class="text">
+						<h3>Main branch</h3>
+						<p>No. 5 Aregbesola Street, Alapere,<br>Kosofe, Lagos.</p>
+					</div>
+				</div>
+				<div class="link">
+					<span class="icon"><i class="fas fa-map-marker"></i></span>
+					<div class="text">
+						<h3>Branch</h3>
+						<p>
+							6a, Akanbi Disu Street, Off Omorinre<br>Johnson Street, Lekki Phase1, Lagos.
+						</p>
+					</div>
+				</div>
+				<div class="link">
+					<span class="icon"><i class="fas fa-phone"></i></span>
+					<div class="text">
+						<h3>Phone 1</h3>
+						<a href="tel:08037996333">08037996333</a>
+					</div>
+				</div>
+				<div class="link">
+					<span class="icon"><i class="fas fa-phone"></i></span>
+					<div class="text">
+						<h3>Phone 2</h3>
+						<a href="tel:07088659291">07088659291</a>
+					</div>
+				</div>
+				<div class="link">
+					<span class="icon"><i class="fab fa-facebook"></i></span>
+					<div class="text">
+						<h3>Facebook</h3>
+						<a href="#">@nimrodage</a>
+					</div>
+				</div>
+				<div class="link">
+					<span class="icon"><i class="fab fa-twitter"></i></span>
+					<div class="text">
+						<h3>Twitter</h3>
+						<a href="#">@nimrodage</a>
+					</div>
+				</div>
+				<div class="link">
+					<span class="icon"><i class="fab fa-whatsapp"></i></span>
+					<div class="text">
+						<h3>Whatsapp</h3>
+						<a href="#">@nimrodage</a>
+					</div>
+				</div>
+				<div class="link">
+					<span class="icon"><i class="fab fa-instagram"></i></span>
+					<div class="text">
+						<h3>Instagram</h3>
+						<a href="#">@nimrodage</a>
+					</div>
+				</div>
+			</div>
+			<div class="direct">
+				<form method="POST">
+				{% csrf_token %}
+					<legend>Direct message</legend>
+					<div class="input">
+						<label for="name">Name*</label>
+						<input type="text" name="name" class="in" value="{% if name %}{{name}}{% endif %}">
+						{% if name_e %}
+							<small style="color: red">{{ name_e }}</small>
+						{% else %}
+							<small>{{ name_h }}</small>
+						{% endif %}
+						<div class="bottom"></div>
+					</div>
+					<div class="input">
+						<label for="name">Company</label>
+						<input type="text" name="company" class="in" value="{% if company %}{{company}}{% endif %}">
+						{% if company_e %}
+							<small style="color: red">{{ company_e }}</small>
+						{% else %}
+							<small>{{ company_h }}</small>
+						{% endif %}
+						<div class="bottom"></div>
+					</div>
+					<div class="input">
+						<label for="name">Email*</label>
+						<input type="email" name="email" class="in" value="{% if email %}{{email}}{% endif %}">
+						{% if email_e %}
+							<small style="color: red">{{ email_e }}</small>
+						{% else %}
+							<small>{{ email_h }}</small>
+						{% endif %}
+						<div class="bottom"></div>
+					</div>
+					<div class="input">
+						<label for="name">Business phone</label>
+						<input type="text" name="business_phone" class="in" value="{% if business_phone %}{{business_phone}}{% endif %}">
+						{% if business_phone_e %}
+							<small style="color: red">{{ business_phone_e }}</small>
+						{% else %}
+							<small>{{ business_phone_h }}</small>
+						{% endif %}
+						<div class="bottom"></div>
+					</div>
+					<div class="input">
+						<label for="name">Mobile phone</label>
+						<input type="text" name="mobile_phone" class="in" value="{% if mobile_phone %}{{mobile_phone}}{% endif %}">
+						{% if mobile_phone_e %}
+							<small style="color: red">{{ mobile_phone_e }}</small>
+						{% else %}
+							<small>{{ mobile_phone_h }}</small>
+						{% endif %}
+						<div class="bottom"></div>
+					</div>
+					<div class="input">
+						<label for="name">Address</label>
+						<textarea type="text" name="address" class="in" rows="6" cols="5">{% if address %}{{address}}{% endif %}</textarea>
+						{% if address_e %}
+							<small style="color: red">{{ address_e }}</small>
+						{% else %}
+							<small>{{ address_h }}</small>
+						{% endif %}
+						<div class="bottom"></div>
+					</div>
+					<div class="input">
+						<label for="name">State*</label>
+						<input type="text" name="state" class="in" value="{% if state %}{{state}}{% endif %}">
+						{% if state_e %}
+							<small style="color: red">{{ state_e }}</small>
+						{% else %}
+							<small>{{ state_h }}</small>
+						{% endif %}
+						<div class="bottom"></div>
+					</div>
+					<div class="input">
+						<label for="name">Country*</label>
+						<input type="text" name="country" class="in" value="{% if country %}{{country}}{% endif %}">
+						{% if country_e %}
+							<small style="color: red">{{ country_e }}</small>
+						{% else %}
+							<small>{{ country_h }}</small>
+						{% endif %}
+						<div class="bottom"></div>
+					</div>
+					<div class="input radio">
+						<label for="name">Are you a new or existing client?*</label>
+						<ul>
+							<li>
+								<input type="radio" name="client" value="N">
+								<label>New</label>
+							</li>
+							<li>
+								<input type="radio" name="client" value="E">
+								<label>Existing</label>
+							</li>
+						</ul>
+						{% if client_e %}
+							<small style="color: red">{{ client_e }}</small>
+						{% else %}
+							<small>{{ client_h }}</small>
+						{% endif %}
+						<div class="bottom"></div>
+					</div>
+					<div class="input radio" id="N">
+						<label for="name">How did you hear about us?*</label>
+						<ul>
+							<li>
+								<input type="radio" name="meeting" value="G">
+								<label>Google/Internet Search</label>
+							</li>
+							<li>
+								<input type="radio" name="meeting" value="R">
+								<label>Referral</label>
+							</li>
+							<li>
+								<input type="radio" name="meeting" value="O">
+								<label>Other</label>
+							</li>
+						</ul>
+						{% if meeting_e %}
+							<small style="color: red">{{ meeting_e }}</small>
+						{% else %}
+							<small>{{ meeting_h }}</small>
+						{% endif %}
+						<div class="bottom"></div>
+					</div>
+					<div class="input" id="G">
+						<label for="name">What phrase did you search?*</label>
+						<input type="text" name="phrase" class="in" value="{% if phrase %}{{phrase}}{% endif %}">
+						{% if phrase_e %}
+							<small style="color: red">{{ phrase_e }}</small>
+						{% else %}
+							<small>{{ phrase_h }}</small>
+						{% endif %}
+						<div class="bottom"></div>
+					</div>
+					<div class="input" id="R">
+						<label for="name">Who referred you?*</label>
+						<input type="text" name="referred" class="in" value="{% if referred %}{{referred}}{% endif %}">
+						{% if referred_e %}
+							<small style="color: red">{{ referred_e }}</small>
+						{% else %}
+							<small>{{ referred_h }}</small>
+						{% endif %}
+						<div class="bottom"></div>
+					</div>
+					<div class="input" id="O">
+						<label for="name">How did you hear about us?*</label>
+						<input type="text" name="other" class="in" value="{% if other %}{{other}}{% endif %}">
+						{% if other_e %}
+							<small style="color: red">{{ other_e }}</small>
+						{% else %}
+							<small>{{ other_h }}</small>
+						{% endif %}
+						<div class="bottom"></div>
+					</div>
+					<div class="input">
+						<label for="message">Questions & comments</label>
+						<textarea name="message" id="" cols="30" rows="10" class="in">{% if message %}{{message}}{% endif %}</textarea>
+						{% if message_e %}
+							<small style="color: red">{{ message_e }}</small>
+						{% else %}
+							<small>{{ message_h }}</small>
+						{% endif %}
+						<div class="bottom"></div>
+					</div>
+					<div class="input">
+						<label for="name">When do you want this service done?</label>
+						<input type="text" name="d_date" class="in" value="{% if d_date %}{{d_date}}{% endif %}">
+						{% if d_date_e %}
+							<small style="color: red">{{ d_date_e }}</small>
+						{% else %}
+							<small>{{ d_date_h }}</small>
+						{% endif %}
+						<div class="bottom"></div>
+					</div>
+					<div class="input file">
+						<label for="name">Please attach any additional files you think may help</label>
+						<input type="file" name="file_one">
+						{% if file_one_e %}
+							<small style="color: red">{{ file_one_e }}</small>
+						{% else %}
+							<small>{{ file_one_h }}</small>
+						{% endif %}
+						<input type="file" name="file_two">
+						{% if file_two_e %}
+							<small style="color: red">{{ file_two_e }}</small>
+						{% else %}
+							<small>{{ file_two_h }}</small>
+						{% endif %}
+						<input type="file" name="file_three">
+						{% if file_three_e %}
+							<small style="color: red">{{ file_three_e }}</small>
+						{% else %}
+							<small>{{ file_three_h }}</small>
+						{% endif %}
+						<input type="file" name="file_four">
+						{% if file_four_e %}
+							<small style="color: red">{{ file_four_e }}</small>
+						{% else %}
+							<small>{{ file_four_h }}</small>
+						{% endif %}
+						<div class="bottom"></div>
+					</div>
+					<button class="btn"><span class="send"><i class="fas fa-paper-plane"></i></span><span>Send</span></button>
+				</form>
+			</div>
+		</div>
+	</section>
+	<section class="map">
+		<h2>Map Location</h2>
+		<div class="maps">
+			<div class="gmap">
+				<h4>Lagos branch</h4>
+				<div class="mapx">
+					
+				</div>
+			</div>
+			<div class="gmap">
+				<h4>Port harcourt branch</h4>
+				<div class="mapx">
+					
+				</div>
+			</div>
+		</div>
+	</section>
+{% endblock %}
