@@ -25,7 +25,7 @@ SECRET_KEY = 'g+=lo0v4_4%re#xnu7&r(o&c9aflq*0c2li8=g%fxl)h=$1e5&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # SITE DOMAIN NAME must add to make emails work in newsletter model in BlogApp app
 SITE_DOMAINX = '127.0.0.1:8000'
